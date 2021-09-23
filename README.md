@@ -16,20 +16,23 @@
 
 
 #### Introduction
+This solution builds a simple React application with AWS Codepipeline CI/CD. Once developers commit to github repo,
+it will trigger code commit via webhook and further invoke the code build project, in which the installation and compiling
+work will be done. Finally, a S3DeployAction is used to push the React build files to S3 bucket, which is the asset of 
+frontend website.
 
 
 #### Architecture
 ![architecture](./architect.png)
 
 
-
 #### Deployment
-执行如下命令安装awscli:
+##### Step 1: install awscli, git
 ```angular2html
-sudo apt-get install -y awscli
+sudo apt-get install -y awscli git
 ```
-安装成功后进行用户陪配置，即在终端中执行`aws configure`回车，输入用户(如果之前在亚马逊云端账户中没有创建过用户，则需要进入IAM控制台先创建用户，
-并对该用户赋予`AdministratorAccess`权限)对应的`AWS Access Key ID`，`AWS Secret Access Key`， `Default region name`和`Default output format`，如下所示：
+
+##### Step 2: configure aws account, which is shown below: 
 ```angular2html
 ubuntu@ip-172-31-16-248:~$ aws configure
 AWS Access Key ID [None]: AKIAXKJO247JFXXXXXXXX
@@ -38,9 +41,7 @@ Default region name [None]: us-east-1
 Default output format [None]: json
 ```
 
-##### 步骤三：安装node
-执行如下命令安装node环境：
-
+##### Step 3: install node environment:
 ```angular2html
 sudo apt-get update
 sudo apt-get -y upgrade
@@ -48,10 +49,28 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
 sudo apt-get install -y nodejs
 ```
 
+##### Step 4: Github OAuthToken Configuration
+
+##### Step 5: deploy the CI/CD solution:
+```angular2html
+git clone https://github.com/gaowexu/profile.git
+cd profile/service
+npm install
+
+// configure parameters: githubTokenName/githubAccount/repoName/branchName
+
+npm run cdk deploy
+```
 
 
 #### Usage
+##### Step 1: Configuration of Cloudfront
 
+
+##### Step 2: Configuration of Route53
+
+
+##### Step 3: Commit & Test
 
 
 
