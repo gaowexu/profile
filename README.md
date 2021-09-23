@@ -15,15 +15,15 @@
 - CDK docs: https://docs.aws.amazon.com/cdk/api/latest/docs/aws-codepipeline-readme.html
 
 
-#### 1. Introduction
+#### Introduction
 
 
-#### 2. Architecture
+#### Architecture
 ![architecture](./architect.png)
 
 
 
-#### 3. Deployment
+#### Deployment
 执行如下命令安装awscli:
 ```angular2html
 sudo apt-get install -y awscli
@@ -50,12 +50,11 @@ sudo apt-get install -y nodejs
 
 
 
-#### 4. Usage
+#### Usage
 
 
 
 
-#### 5. License
-
+#### License
 
 
