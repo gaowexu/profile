@@ -75,5 +75,5 @@ npm run cdk deploy
 
 
 #### License
-
+See the [LICENSE](LICENSE) file for our project's licensing.
 
