@@ -25,7 +25,6 @@ frontend website.
 #### Architecture
 ![architecture](./architect.png)
 
-
 #### Deployment
 ##### Step 1: install awscli, git
 ```angular2html
@@ -50,6 +49,11 @@ sudo apt-get install -y nodejs
 ```
 
 ##### Step 4: Github OAuthToken Configuration
+In order to grant github authentication to AWS code commit, please refer to `Github Account Profile > 
+Setting > Developer Setting > Personal access tokens > Generate new token`, input the personal access 
+token note (name), check repo and admin:repo_hook, then click generate new token, a new token is generated,
+copy it and paste into AWS KMS, for example, the key secret name is `profileGithubToken`.
+
 
 ##### Step 5: deploy the CI/CD solution:
 ```angular2html
@@ -58,6 +62,11 @@ cd profile/service
 npm install
 
 // configure parameters: githubTokenName/githubAccount/repoName/branchName
+<!--for example:-->
+<!--githubTokenName: 'profileGithubToken',-->
+<!--githubAccount: 'gaowexu',-->
+<!--repoName: 'profile',-->
+<!--branchName: 'master',-->
 
 npm run cdk deploy
 ```
